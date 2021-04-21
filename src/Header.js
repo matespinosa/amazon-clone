@@ -4,13 +4,16 @@ import amazonLogo from './assets/img/amazon-logo.png';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <div>
       <Container>
         <HeaderLogo>
-          <img src={amazonLogo} />
+          <Link to="/">
+            <img src={amazonLogo} />
+          </Link>
         </HeaderLogo>
         <HeaderOptionAddress>
           <LocationOnIcon />
@@ -39,8 +42,10 @@ const Header = () => {
           </HeaderOption>
 
           <HeaderOptionCart>
-            <ShoppingBasketIcon />
-            <CartCount>4</CartCount>
+            <Link to="/cart">
+              <ShoppingBasketIcon />
+              <CartCount>4</CartCount>
+            </Link>
           </HeaderOptionCart>
         </HeaderNavItems>
       </Container>
@@ -122,6 +127,12 @@ const HeaderOption = styled.div`
 const HeaderOptionCart = styled.div`
   display: flex;
   align-items: center;
+
+  a {
+    display: flex;
+    color: #fff;
+    text-decoration: none;
+  }
 `;
 
 const CartCount = styled.div`
