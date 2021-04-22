@@ -19,7 +19,6 @@ const CartItems = ({ cartItems }) => {
 export default CartItems;
 
 const Container = styled.section`
-  height: 300px;
   margin-right: 18px;
   background-color: #fff;
   flex: 0.8;
