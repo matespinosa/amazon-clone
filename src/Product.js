@@ -1,14 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import ipadPro from './assets/img/ipad-pro.jpg';
 
-const Product = ({ title, price, img }) => {
+const Product = ({ title, price, image, rating }) => {
   return (
     <Container>
-      <Title>Ipad Pro</Title>
-      <Price>$1449</Price>
-      <Rating>⭐⭐⭐⭐⭐</Rating>
-      <Image src={ipadPro} />
+      <Title>{title}</Title>
+      <Price>${price}</Price>
+      <Rating>
+        {Array(rating)
+          .fill()
+          .map((rating) => (
+            <p>⭐</p>
+          ))}
+      </Rating>
+      <Image src={image} />
       <ActionSection>
         <AddToCartButton>Add to Cart</AddToCartButton>
       </ActionSection>
@@ -34,7 +39,10 @@ const Price = styled.span`
   font-weight: 500;
   margin-top: 3px;
 `;
-const Rating = styled.div``;
+const Rating = styled.div`
+  display: flex;
+  margin: 1em 0;
+`;
 const Image = styled.img`
   max-height: 200px;
   object-fit: contain;
