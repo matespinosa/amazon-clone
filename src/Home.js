@@ -33,7 +33,7 @@ const Banner = styled.div`
 `;
 
 const Content = styled.div`
-  background: #fff;
+  /* background: #fff; */
   padding: 0 10px;
   margin-top: -350px;
   display: flex;

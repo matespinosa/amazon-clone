@@ -52,4 +52,11 @@ const AddToCartButton = styled.button`
   background-color: #f0c14b;
   border: 2px solid #a88734;
   border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+  transition: 0.5s all ease-in;
+
+  &:hover {
+    background-color: #f4cf72;
+  }
 `;
