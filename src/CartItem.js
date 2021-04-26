@@ -3,6 +3,11 @@ import styled from 'styled-components';
 import { db } from './firebase';
 
 const CartItem = ({ id, item }) => {
+  const deleteItem = (e) => {
+    e.preventDefault();
+    db.collection('cartItems').doc(id).delete();
+  };
+
   let options = [];
 
   for (let i = 1; i < Math.max(item.quantity + 1, 20); i++) {
@@ -35,7 +40,9 @@ const CartItem = ({ id, item }) => {
               {options}
             </select>
           </CartItemQuantityContainer>
-          <CartItemDeleteContainer>Delete</CartItemDeleteContainer>
+          <CartItemDeleteContainer onClick={deleteItem}>
+            Delete
+          </CartItemDeleteContainer>
         </CartItemInfoBottom>
       </CartItemInfo>
       <CartItemPrice>${item.price}</CartItemPrice>
